@@ -1376,10 +1376,10 @@ class Selection(Field):
                 # because those attributes are overridden by ``set_class_name``.
                 if 'selection' in field._attrs:
                     self.selection = field._attrs['selection']
-                if 'selection_add' in field._attrs:
-                    # use an OrderedDict to update existing values
-                    selection_add = field._attrs['selection_add']
-                    self.selection = OrderedDict(self.selection + selection_add).items()
+                    if 'selection_add' in field._attrs:
+                        # use an OrderedDict to update existing values
+                        selection_add = field._attrs['selection_add']
+                        self.selection = OrderedDict(self.selection + selection_add).items()
             else:
                 self.selection = None
 
